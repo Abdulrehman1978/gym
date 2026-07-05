@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lottie/lottie.dart';
 import 'package:ironlog/core/constants/color_constants.dart';
 import 'package:ironlog/features/home/home_provider.dart';
 import 'package:ironlog/core/utils/rm_calculator.dart';
@@ -69,6 +68,11 @@ class _ExerciseDetailScreenState extends ConsumerState<ExerciseDetailScreen> {
     final equipment = ex['equipment'] as String;
     final exerciseType = ex['exercise_type'] as String;
     final animationAsset = ex['animation_asset'] as String;
+    final slug = animationAsset.isNotEmpty
+        ? animationAsset
+        : (name.toLowerCase()
+            .replaceAll(RegExp(r'\s+'), '-')
+            .replaceAll(RegExp(r'[()]'), ''));
     final formCues = (ex['form_cues'] as String?)?.split('|') ?? <String>[];
     final commonMistakes = (ex['common_mistakes'] as String?)?.split('|') ?? <String>[];
     final breathingCue = ex['breathing_cue'] as String?;
@@ -92,15 +96,40 @@ class _ExerciseDetailScreenState extends ConsumerState<ExerciseDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Container(
-                color: const Color(0xFF2A2A2A),
-                child: Center(
-                  child: animationAsset.isNotEmpty
-                      ? Lottie.asset('assets/$animationAsset', fit: BoxFit.contain)
-                      : const Icon(Icons.fitness_center, color: Colors.white38, size: 80),
-                ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/exercises/$slug/0.jpg',
+                        fit: BoxFit.contain,
+                        errorBuilder: (_, __, ___) => Container(
+                          height: 150,
+                          color: AppColors.surfaceLight,
+                          child: const Icon(Icons.fitness_center, size: 48, color: AppColors.textMuted),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/exercises/$slug/1.jpg',
+                        fit: BoxFit.contain,
+                        errorBuilder: (_, __, ___) => Container(
+                          height: 150,
+                          color: AppColors.surfaceLight,
+                          child: const Icon(Icons.fitness_center, size: 48, color: AppColors.textMuted),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(

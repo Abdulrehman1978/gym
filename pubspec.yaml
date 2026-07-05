@@ -12,7 +12,6 @@ dependencies:
   sqflite: ^2.4.1
   path: ^1.9.1
   flutter_riverpod: ^2.6.1
-  lottie: ^3.1.3
   fl_chart: ^0.70.2
   dio: ^5.7.0
   connectivity_plus: ^6.1.4
@@ -34,5 +33,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/lottie/
+    - assets/exercises/
     - assets/images/muscle_diagrams/

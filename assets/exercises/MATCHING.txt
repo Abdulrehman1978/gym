@@ -1,0 +1,31 @@
+﻿Flat Barbell Bench Press -> free-exercise-db: Barbell_Bench_Press_-_Medium_Grip -> local: flat_barbell_bench_press
+Incline Dumbbell Press -> free-exercise-db: Incline_Dumbbell_Press -> local: incline_dumbbell_press
+Pec Deck Fly Machine -> free-exercise-db: Butterfly -> local: pec_deck_fly_machine
+Dumbbell Lateral Raise -> free-exercise-db: Side_Lateral_Raise -> local: dumbbell_lateral_raise
+Cable Pushdown (Rope) -> free-exercise-db: Triceps_Pushdown_-_Rope_Attachment -> local: cable_pushdown_rope
+Dips (Tricep Focus) -> free-exercise-db: Dips_-_Triceps_Version -> local: dips_tricep_focus
+Incline Barbell Bench Press -> free-exercise-db: Barbell_Incline_Bench_Press_-_Medium_Grip -> local: incline_barbell_bench_press
+Smith Machine Shoulder Press -> free-exercise-db: Smith_Machine_Overhead_Shoulder_Press -> local: smith_machine_shoulder_press
+Decline Barbell Bench Press -> free-exercise-db: Decline_Barbell_Bench_Press -> local: decline_barbell_bench_press
+Cable Fly (High to Low) -> free-exercise-db: Cable_Crossover -> local: cable_fly_high_to_low
+Overhead Cable Tricep Extension -> free-exercise-db: Cable_Rope_Overhead_Triceps_Extension -> local: overhead_cable_tricep_extension
+Dumbbell Front Raise -> free-exercise-db: Front_Dumbbell_Raise -> local: dumbbell_front_raise
+Lat Pulldown (Wide Overhand) -> free-exercise-db: Wide-Grip_Lat_Pulldown -> local: lat_pulldown_wide_overhand
+Seated Cable Row (V-Bar) -> free-exercise-db: Seated_Cable_Rows -> local: seated_cable_row_v_bar
+Dumbbell Single Arm Row -> free-exercise-db: One-Arm_Dumbbell_Row -> local: dumbbell_single_arm_row
+Preacher Curl (EZ Bar) -> free-exercise-db: Preacher_Curl -> local: preacher_curl_ez_bar
+Hammer Curl (Alternating) -> free-exercise-db: Alternate_Hammer_Curl -> local: hammer_curl_alternating
+Forearm Machine (Wrist Curl) -> free-exercise-db: Palms-Up_Barbell_Wrist_Curl_Over_A_Bench -> local: forearm_machine_wrist_curl
+Lat Pulldown (Underhand) -> free-exercise-db: Close-Grip_Front_Lat_Pulldown -> local: lat_pulldown_underhand
+Barbell Bent Over Row -> free-exercise-db: Bent_Over_Barbell_Row -> local: barbell_bent_over_row
+Straight Arm Cable Pulldown -> free-exercise-db: Straight-Arm_Pulldown -> local: straight_arm_cable_pulldown
+Preacher Curl (Dumbbell) -> free-exercise-db: One_Arm_Dumbbell_Preacher_Curl -> local: preacher_curl_dumbbell
+Cable Curl (Straight Bar) -> free-exercise-db: Standing_Biceps_Cable_Curl -> local: cable_curl_straight_bar
+Smith Machine Squat -> free-exercise-db: Smith_Machine_Squat -> local: smith_machine_squat
+Leg Extension Machine -> free-exercise-db: Leg_Extensions -> local: leg_extension_machine
+Hamstring Curl Machine -> free-exercise-db: Lying_Leg_Curls -> local: hamstring_curl_machine
+Romanian Deadlift (Barbell) -> free-exercise-db: Romanian_Deadlift -> local: romanian_deadlift_barbell
+Hanging Leg Raise -> free-exercise-db: Hanging_Leg_Raise -> local: hanging_leg_raise
+Bulgarian Split Squat (Smith) -> free-exercise-db: Smith_Single-Leg_Split_Squat -> local: bulgarian_split_squat_smith
+Dumbbell Romanian Deadlift -> free-exercise-db: Romanian_Deadlift -> local: dumbbell_romanian_deadlift
+Hanging Knee Raise (Oblique) -> free-exercise-db: Hanging_Leg_Raise -> local: hanging_knee_raise_oblique

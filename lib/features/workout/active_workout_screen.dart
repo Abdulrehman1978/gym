@@ -6,7 +6,6 @@ import 'package:ironlog/features/home/home_provider.dart';
 import 'package:ironlog/features/workout/workout_provider.dart';
 import 'package:ironlog/shared/widgets/deload_banner.dart';
 import 'package:ironlog/shared/widgets/pr_celebration.dart';
-import 'package:ironlog/shared/widgets/rest_timer.dart';
 import 'package:ironlog/shared/widgets/warmup_banner.dart';
 
 class _SetEntry {
@@ -91,7 +90,6 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
       entry.completed = true;
     });
 
-    notifier.startRest(restSeconds);
   }
 
   void _addExtraSet() {
@@ -306,14 +304,6 @@ class _ActiveWorkoutScreenState extends ConsumerState<ActiveWorkoutScreen> {
                                       padding: const EdgeInsets.symmetric(vertical: 14),
                                     ),
                                   ),
-                                ),
-                              ),
-                            if (wState.isResting)
-                              Padding(
-                                padding: const EdgeInsets.only(top: 16),
-                                child: RestTimer(
-                                  secondsRemaining: wState.restSecondsRemaining,
-                                  onSkip: () => ref.read(workoutProvider.notifier).skipRest(),
                                 ),
                               ),
                             const SizedBox(height: 80),

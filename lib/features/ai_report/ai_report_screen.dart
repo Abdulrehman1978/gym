@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
+import 'package:ironlog/core/constants/app_constants.dart';
 import 'package:ironlog/core/constants/color_constants.dart';
 import 'package:ironlog/core/services/sync_service.dart';
 import 'package:ironlog/core/database/database_helper.dart';
@@ -22,7 +23,7 @@ class AIReportScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final reportAsync = ref.watch(latestReportProvider);
-    final syncService = SyncService(DatabaseHelper.instance, Dio(BaseOptions(baseUrl: 'https://api.ironlog.app')));
+    final syncService = SyncService(DatabaseHelper.instance, Dio(BaseOptions(baseUrl: AppConstants.apiBaseUrl)));
 
     return Scaffold(
       backgroundColor: AppColors.background,

@@ -11,4 +11,5 @@ class AppConstants {
   static const double upperBodyProgressionKg = 2.5;
   static const double lowerBodyProgressionKg = 5.0;
   static const int targetProgressSessions = 2;
+  static const String apiBaseUrl = 'http://localhost:8000';
 }

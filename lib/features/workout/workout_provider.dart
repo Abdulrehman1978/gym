@@ -10,8 +10,6 @@ class WorkoutState {
   final List<SetLog> currentSets;
   final int currentExerciseIndex;
   final int currentSetNumber;
-  final bool isResting;
-  final int restSecondsRemaining;
   final int? activeTimerSeconds;
   final bool isComplete;
 
@@ -21,8 +19,6 @@ class WorkoutState {
     this.currentSets = const [],
     this.currentExerciseIndex = 0,
     this.currentSetNumber = 1,
-    this.isResting = false,
-    this.restSecondsRemaining = 0,
     this.activeTimerSeconds,
     this.isComplete = false,
   });
@@ -33,8 +29,6 @@ class WorkoutState {
     List<SetLog>? currentSets,
     int? currentExerciseIndex,
     int? currentSetNumber,
-    bool? isResting,
-    int? restSecondsRemaining,
     int? activeTimerSeconds,
     bool? isComplete,
   }) {
@@ -44,8 +38,6 @@ class WorkoutState {
       currentSets: currentSets ?? this.currentSets,
       currentExerciseIndex: currentExerciseIndex ?? this.currentExerciseIndex,
       currentSetNumber: currentSetNumber ?? this.currentSetNumber,
-      isResting: isResting ?? this.isResting,
-      restSecondsRemaining: restSecondsRemaining ?? this.restSecondsRemaining,
       activeTimerSeconds: activeTimerSeconds ?? this.activeTimerSeconds,
       isComplete: isComplete ?? this.isComplete,
     );
@@ -54,14 +46,12 @@ class WorkoutState {
 
 class WorkoutNotifier extends StateNotifier<WorkoutState> {
   final Ref _ref;
-  Timer? _restTimer;
   Timer? _activeTimer;
 
   WorkoutNotifier(this._ref) : super(WorkoutState());
 
   @override
   void dispose() {
-    _restTimer?.cancel();
     _activeTimer?.cancel();
     super.dispose();
   }
@@ -118,56 +108,23 @@ class WorkoutNotifier extends StateNotifier<WorkoutState> {
     final workoutService = _ref.read(workoutServiceProvider);
     await workoutService.completeWorkout(sessionId, durationMinutes, feeling, notes);
 
-    _restTimer?.cancel();
     _activeTimer?.cancel();
 
-    state = state.copyWith(isComplete: true, isResting: false);
-  }
-
-  void startRest(int seconds) {
-    _restTimer?.cancel();
-    state = state.copyWith(isResting: true, restSecondsRemaining: seconds);
-    _restTimer = Timer.periodic(const Duration(seconds: 1), (_) {
-      if (state.restSecondsRemaining > 0) {
-        tickRest();
-      } else {
-        _restTimer?.cancel();
-      }
-    });
-  }
-
-  void skipRest() {
-    _restTimer?.cancel();
-    state = state.copyWith(isResting: false, restSecondsRemaining: 0);
-  }
-
-  void tickRest() {
-    if (state.restSecondsRemaining > 0) {
-      state = state.copyWith(restSecondsRemaining: state.restSecondsRemaining - 1);
-    } else {
-      _restTimer?.cancel();
-      state = state.copyWith(isResting: false, restSecondsRemaining: 0);
-    }
+    state = state.copyWith(isComplete: true);
   }
 
   void nextExercise() {
-    _restTimer?.cancel();
     state = state.copyWith(
       currentExerciseIndex: state.currentExerciseIndex + 1,
       currentSetNumber: 1,
-      isResting: false,
-      restSecondsRemaining: 0,
     );
   }
 
   void previousExercise() {
     if (state.currentExerciseIndex > 0) {
-      _restTimer?.cancel();
       state = state.copyWith(
         currentExerciseIndex: state.currentExerciseIndex - 1,
         currentSetNumber: 1,
-        isResting: false,
-        restSecondsRemaining: 0,
       );
     }
   }
