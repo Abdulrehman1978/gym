@@ -1,6 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'schema.dart';
+import 'seed_data.dart';
 
 class DatabaseHelper {
   static Database? _database;
@@ -37,6 +38,9 @@ class DatabaseHelper {
     for (final sql in _splitStatements(createIndexesSQL)) {
       await db.execute(sql);
     }
+    
+    // Seed initial data (exercises, workout days, config)
+    await SeedData.seedAll(this);
   }
 
   static List<String> _splitStatements(String sql) {
