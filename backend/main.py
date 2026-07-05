@@ -1,7 +1,7 @@
 import os
 import json
 import sqlite3
-import anthropic
+import google.generativeai as genai
 from datetime import datetime
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -57,13 +57,19 @@ def sync_workout(req: SyncRequest):
 
 @app.post("/ai-report")
 def ai_report(req: AIReportRequest):
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise HTTPException(503, "AI analysis unavailable - no API key configured")
 
-    system_prompt = """You are an expert strength-training analyst. Given a user's logged workout data across a 6-day Push/Pull/Legs x 2 program, analyze their progress. Return ONLY valid JSON with no extra text. The JSON must have keys: insights (array of {title, description, type}), muscle_scores (object mapping muscle name to 0-100 score), next_week_focus (string), progressive_overload_suggestions (array of {exercise, current_weight, suggested_weight}), motivation_message (string), warning_flags (array of strings). Be specific with numbers. Encourage consistency."""
-
-    user_prompt = f"""Analyze this workout data:
+    prompt = f"""You are an expert strength-training analyst. Given a user's logged workout data across a 6-day Push/Pull/Legs x 2 program, analyze their progress.
+Return ONLY valid JSON with no extra text. The JSON must have keys:
+- insights (array of {{title, description, type}})
+- muscle_scores (object mapping muscle name to 0-100 score)
+- next_week_focus (string)
+- progressive_overload_suggestions (array of {{exercise, current_weight, suggested_weight}})
+- motivation_message (string)
+- warning_flags (array of strings)
+Be specific with numbers. Encourage consistency.
 
 Workout Summary:
 {req.workout_summary}
@@ -73,22 +79,17 @@ PR Summary:
 
 Return JSON analysis."""
 
-    client = anthropic.Anthropic(api_key=api_key)
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=2000,
-        system=system_prompt,
-        messages=[{"role": "user", "content": user_prompt}]
-    )
-
-    content = response.content[0].text
     import re
-    json_match = re.search(r'\{.*\}', content, re.DOTALL)
-    if json_match:
-        try:
+    try:
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel('gemini-2.0-flash')
+        response = model.generate_content(prompt)
+        content = response.text
+        json_match = re.search(r'\{.*\}', content, re.DOTALL)
+        if json_match:
             return json.loads(json_match.group())
-        except json.JSONDecodeError:
-            pass
+    except Exception as e:
+        raise HTTPException(500, f"AI analysis failed: {str(e)}")
 
     return {
         "insights": [{"title": "Analysis Complete", "description": "AI analyzed your data. Continue training consistently!", "type": "positive"}],
@@ -101,4 +102,4 @@ Return JSON analysis."""
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "ai_configured": bool(os.environ.get("ANTHROPIC_API_KEY"))}
+    return {"status": "ok", "ai_configured": bool(os.environ.get("GEMINI_API_KEY"))}
