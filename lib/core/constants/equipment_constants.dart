@@ -1,0 +1,25 @@
+class EquipmentConstants {
+  static const Set<String> allEquipment = {
+    'flat_bench',
+    'barbell',
+    'dumbbells',
+    'incline_bench',
+    'decline_bench',
+    'smith_machine',
+    'cable_machine',
+    'pec_deck_machine',
+    'lat_pulldown_machine',
+    'seated_row_machine',
+    'leg_extension_machine',
+    'hamstring_curl_machine',
+    'preacher_curl_machine',
+    'forearm_machine',
+    'dips_station',
+    'hanging_leg_raise_station',
+    'ez_bar',
+    'v_bar',
+    'rope_attachment',
+    'straight_bar',
+    'adjustable_bench',
+  };
+}
