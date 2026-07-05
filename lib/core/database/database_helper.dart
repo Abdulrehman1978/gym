@@ -27,9 +27,24 @@ class DatabaseHelper {
     );
   }
 
-  void _onCreate(Database db, int version) async {
-    await db.execute(createTablesSQL);
-    await db.execute(createIndexesSQL);
+  Future<void> _onCreate(Database db, int version) async {
+    // sqflite's db.execute() only processes ONE SQL statement per call.
+    // Both SQL strings contain multiple statements separated by ';'.
+    // We must split them and execute each statement individually.
+    for (final sql in _splitStatements(createTablesSQL)) {
+      await db.execute(sql);
+    }
+    for (final sql in _splitStatements(createIndexesSQL)) {
+      await db.execute(sql);
+    }
+  }
+
+  static List<String> _splitStatements(String sql) {
+    return sql
+        .split(';')
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList();
   }
 
   Future<int> insert(String table, Map<String, dynamic> data) async {
