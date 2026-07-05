@@ -21,11 +21,24 @@ class DatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, 'ironlog.db');
 
-    return await openDatabase(
+    final db = await openDatabase(
       path,
       version: 1,
       onCreate: _onCreate,
     );
+    
+    // Safety net: if tables were created but seeding failed/aborted previously
+    try {
+      final result = await db.rawQuery('SELECT COUNT(*) as count FROM exercises');
+      final count = result.first['count'] as int? ?? 0;
+      if (count == 0) {
+        await SeedData.seedAll(db);
+      }
+    } catch (e) {
+      // Ignored, tables might not exist yet if something went horribly wrong
+    }
+    
+    return db;
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -40,7 +53,7 @@ class DatabaseHelper {
     }
     
     // Seed initial data (exercises, workout days, config)
-    await SeedData.seedAll(this);
+    await SeedData.seedAll(db);
   }
 
   static List<String> _splitStatements(String sql) {

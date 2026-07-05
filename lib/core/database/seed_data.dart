@@ -1,9 +1,8 @@
-﻿import 'database_helper.dart';
-
-class SeedData {
-  static Future<void> seedAll(DatabaseHelper db) async {
-    final isEmpty = await db.isTableEmpty('exercises');
-    if (!isEmpty) return;
+import 'package:sqflite/sqflite.dart';class SeedData {
+  static Future<void> seedAll(Database db) async {
+    final result = await db.rawQuery('SELECT COUNT(*) as count FROM exercises');
+    final count = result.first['count'] as int? ?? 0;
+    if (count > 0) return;
 
     await db.transaction((tx) async {
       for (final exercise in _exercises) {

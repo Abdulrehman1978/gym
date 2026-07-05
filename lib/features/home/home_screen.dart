@@ -171,27 +171,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                   ),
       ),
-      bottomNavigationBar: BottomNav(
-        currentIndex: 0,
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              break;
-            case 1:
-              final day = DateTime.now().weekday;
-              if (day >= 1 && day <= 6) {
-                Navigator.pushNamed(context, '/workout', arguments: day);
-              }
-              break;
-            case 2:
-              Navigator.pushNamed(context, '/library');
-              break;
-            case 3:
-              Navigator.pushNamed(context, '/progress');
-              break;
-          }
-        },
-      ),
+      bottomNavigationBar: const BottomNav(currentIndex: 0),
     );
   }
 }

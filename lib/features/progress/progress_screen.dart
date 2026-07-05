@@ -258,7 +258,7 @@ class _ProgressScreenState extends ConsumerState<ProgressScreen> {
                 ),
               ),
       ),
-      bottomNavigationBar: BottomNav(currentIndex: 3, onTap: (i) {}),
+      bottomNavigationBar: const BottomNav(currentIndex: 3),
     );
   }
 

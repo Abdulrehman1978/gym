@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ironlog/core/constants/color_constants.dart';
 import 'package:ironlog/features/home/home_provider.dart';
+import 'package:ironlog/shared/widgets/bottom_nav.dart';
 
 final searchQueryProvider = StateProvider<String>((ref) => '');
 final selectedMuscleProvider = StateProvider<String>((ref) => 'All');
@@ -183,8 +184,8 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
               ),
             ],
           ],
-        ),
       ),
+      bottomNavigationBar: const BottomNav(currentIndex: 2),
     );
   }
 }
