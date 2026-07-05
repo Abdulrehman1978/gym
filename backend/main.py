@@ -62,13 +62,38 @@ def ai_report(req: AIReportRequest):
         raise HTTPException(503, "AI analysis unavailable - no API key configured")
 
     prompt = f"""You are an expert strength-training analyst. Given a user's logged workout data across a 6-day Push/Pull/Legs x 2 program, analyze their progress.
-Return ONLY valid JSON with no extra text. The JSON must have keys:
-- insights (array of {{title, description, type}})
-- muscle_scores (object mapping muscle name to 0-100 score)
-- next_week_focus (string)
-- progressive_overload_suggestions (array of {{exercise, current_weight, suggested_weight}})
-- motivation_message (string)
-- warning_flags (array of strings)
+Return ONLY valid JSON with no extra text. The JSON must have the following keys and structure:
+{{
+  "week_summary": {{
+    "sessions_quality": "string (e.g. Excellent, Good, Fair)",
+    "strongest_muscle": "string",
+    "needs_attention": "string"
+  }},
+  "insights": [
+    {{
+      "icon": "string (emoji)",
+      "title": "string",
+      "description": "string",
+      "type": "string (positive, warning, or suggestion)"
+    }}
+  ],
+  "muscle_scores": {{
+    "Muscle Name": 0-100 (integer)
+  }},
+  "next_week_focus": [
+    "string"
+  ],
+  "progressive_overload": [
+    {{
+      "exercise": "string",
+      "current": "string (e.g. 80kg)",
+      "suggested": "string (e.g. 82.5kg)"
+    }}
+  ],
+  "motivation_message": "string",
+  "warning_flags": ["string"]
+}}
+
 Be specific with numbers. Encourage consistency.
 
 Workout Summary:
@@ -92,10 +117,15 @@ Return JSON analysis."""
         raise HTTPException(500, f"AI analysis failed: {str(e)}")
 
     return {
-        "insights": [{"title": "Analysis Complete", "description": "AI analyzed your data. Continue training consistently!", "type": "positive"}],
+        "week_summary": {
+            "sessions_quality": "Good",
+            "strongest_muscle": "N/A",
+            "needs_attention": "N/A"
+        },
+        "insights": [{"icon": "💡", "title": "Analysis Complete", "description": "AI analyzed your data. Continue training consistently!", "type": "positive"}],
         "muscle_scores": {"Chest": 70, "Back": 70, "Legs": 70, "Arms": 70, "Shoulders": 70},
-        "next_week_focus": "Stay consistent with your current program",
-        "progressive_overload_suggestions": [],
+        "next_week_focus": ["Stay consistent with your current program"],
+        "progressive_overload": [],
         "motivation_message": "Keep showing up - consistency is what builds muscle!",
         "warning_flags": []
     }

@@ -14,7 +14,11 @@ final latestReportProvider = FutureProvider<Map<String, dynamic>?>((ref) async {
   if (results.isEmpty) return null;
   final report = results.first['ai_report'] as String?;
   if (report == null) return null;
-  return jsonDecode(report) as Map<String, dynamic>;
+  try {
+    return jsonDecode(report) as Map<String, dynamic>;
+  } catch (e) {
+    return null;
+  }
 });
 
 class AIReportScreen extends ConsumerWidget {
@@ -27,6 +31,24 @@ class AIReportScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
+      appBar: AppBar(
+        title: const Text('AI Analysis', style: TextStyle(color: AppColors.white)),
+        backgroundColor: AppColors.surface,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh, color: AppColors.primary),
+            onPressed: () async {
+              // Show loading snackbar
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Generating AI Report... This may take a moment.')),
+              );
+              await syncService.generateAIReport();
+              ref.refresh(latestReportProvider);
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            },
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -112,7 +134,7 @@ class AIReportScreen extends ConsumerWidget {
                       const Text('MUSCLE BALANCE', style: TextStyle(color: AppColors.primary, fontSize: 13, letterSpacing: 1)),
                       const SizedBox(height: 8),
                       ...((report['muscle_scores'] as Map<String, dynamic>?) ?? {}).entries.map((e) {
-                        final score = (e.value as num).toDouble();
+                        final score = (e.value as num?)?.toDouble() ?? 0.0;
                         return _MuscleBalanceRow(muscle: e.key, percentage: score.toInt());
                       }),
 
