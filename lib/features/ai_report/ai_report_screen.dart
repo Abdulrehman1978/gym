@@ -176,7 +176,7 @@ class AIReportScreen extends ConsumerWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(currentIndex: 4, onTap: (i) {}),
+      bottomNavigationBar: const BottomNav(currentIndex: 3),
     );
   }
 
