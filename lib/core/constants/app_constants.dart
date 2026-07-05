@@ -18,6 +18,6 @@ class AppConstants {
   // Example deployed URL: https://ironlog-backend.onrender.com
   // DO NOT use 'http://localhost:8000' — on a physical Android device localhost resolves
   // to the device itself, not the dev machine, so it will always fail.
-  static const String apiBaseUrl = 'https://ironlog-backend.onrender.com';
+  static const String apiBaseUrl = 'https://gym-z3pk.onrender.com';
 }
 
