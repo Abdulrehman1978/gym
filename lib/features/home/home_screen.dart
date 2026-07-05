@@ -28,7 +28,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _loadData();
+    // Defer until after the first frame — Riverpod forbids modifying
+    // a StateNotifier during the widget mount/build phase (initState).
+    Future.microtask(() => _loadData());
   }
 
   Future<void> _loadData() async {

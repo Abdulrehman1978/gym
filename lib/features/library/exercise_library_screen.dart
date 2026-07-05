@@ -26,7 +26,7 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
   @override
   void initState() {
     super.initState();
-    _loadExercises();
+    Future.microtask(() => _loadExercises());
   }
 
   Future<void> _loadExercises() async {

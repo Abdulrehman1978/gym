@@ -32,7 +32,7 @@ class _ProgressScreenState extends ConsumerState<ProgressScreen> {
   @override
   void initState() {
     super.initState();
-    _loadData();
+    Future.microtask(() => _loadData());
   }
 
   Future<void> _loadData() async {
