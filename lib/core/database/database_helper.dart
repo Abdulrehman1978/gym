@@ -5,6 +5,7 @@ import 'seed_data.dart';
 
 class DatabaseHelper {
   static Database? _database;
+  static Future<Database>? _initDbFuture;
 
   static final DatabaseHelper instance = DatabaseHelper._internal();
 
@@ -13,7 +14,9 @@ class DatabaseHelper {
   DatabaseHelper._internal();
 
   Future<Database> get database async {
-    _database ??= await _initDatabase();
+    if (_database != null) return _database!;
+    _initDbFuture ??= _initDatabase();
+    _database = await _initDbFuture!;
     return _database!;
   }
 
@@ -32,7 +35,9 @@ class DatabaseHelper {
       final result = await db.rawQuery('SELECT COUNT(*) as count FROM exercises');
       final count = result.first['count'] as int? ?? 0;
       if (count == 0) {
-        await SeedData.seedAll(db);
+        try {
+          await SeedData.seedAll(db);
+        } catch (_) {}
       }
     } catch (e) {
       // Ignored, tables might not exist yet if something went horribly wrong

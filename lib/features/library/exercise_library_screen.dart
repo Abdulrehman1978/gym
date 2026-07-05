@@ -31,13 +31,21 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
   }
 
   Future<void> _loadExercises() async {
-    final db = ref.read(databaseProvider);
-    final exercises = await db.query('exercises', orderBy: 'name');
-    if (mounted) {
-      setState(() {
-        _allExercises = exercises.cast<Map<String, dynamic>>();
-        _loading = false;
-      });
+    try {
+      final db = ref.read(databaseProvider);
+      final exercises = await db.query('exercises', orderBy: 'name');
+      if (mounted) {
+        setState(() {
+          _allExercises = exercises.cast<Map<String, dynamic>>();
+          _loading = false;
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _loading = false;
+        });
+      }
     }
   }
 

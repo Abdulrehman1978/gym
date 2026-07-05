@@ -19,9 +19,8 @@ app.add_middleware(
 
 DB_PATH = os.environ.get("IRONLOG_DB_PATH", "ironlog_backend.db")
 
-def get_db():
+def init_db():
     conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
     conn.execute("""
         CREATE TABLE IF NOT EXISTS workout_sessions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -32,7 +31,16 @@ def get_db():
             created_at TEXT DEFAULT (datetime('now'))
         )
     """)
+    conn.commit()
+    conn.close()
+
+init_db()
+
+def get_db():
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
     return conn
+
 
 class SyncRequest(BaseModel):
     session_id: int
