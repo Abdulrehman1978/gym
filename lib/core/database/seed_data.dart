@@ -1,4 +1,4 @@
-import 'database_helper.dart';
+﻿import 'database_helper.dart';
 
 class SeedData {
   static Future<void> seedAll(DatabaseHelper db) async {
@@ -37,7 +37,7 @@ class SeedData {
       'muscle_primary': 'Chest',
       'muscle_secondary': 'Triceps, Front Delt',
       'equipment': 'barbell, flat_bench',
-      'animation_asset': 'flat-barbell-bench-press',
+      'animation_asset': 'flat_barbell_bench_press',
       'exercise_type': 'compound',
       'form_cues':
           'Feet flat on floor, full contact|Grip 1.5x shoulder width|Shoulder blades squeezed together and DOWN|Slight natural lower back arch|Bar touches lower chest (nipple line)|Elbows at 45-60 degree angle|Push bar slightly back toward face at top|Full lockout each rep',
@@ -56,7 +56,7 @@ class SeedData {
       'muscle_primary': 'Upper Chest',
       'muscle_secondary': 'Front Delt',
       'equipment': 'dumbbells, incline_bench',
-      'animation_asset': 'incline-dumbbell-press',
+      'animation_asset': 'incline_dumbbell_press',
       'exercise_type': 'compound',
       'form_cues':
           'Bench at 30 degrees (not 45)|Dumbbells at shoulder height, neutral grip|Press up and slightly inward|Stop just before dumbbells touch|Feel upper chest stretch at bottom|Control descent 2 seconds down',
@@ -74,7 +74,7 @@ class SeedData {
       'muscle_primary': 'Chest',
       'muscle_secondary': 'Front Delt',
       'equipment': 'pec_deck_machine',
-      'animation_asset': 'pec-deck-fly-machine',
+      'animation_asset': 'pec_deck_fly_machine',
       'exercise_type': 'isolation',
       'form_cues':
           'Seat height — handles at chest height|Slight bend in elbows (10-15 degrees)|Don\'t go past comfortable stretch|Squeeze chest hard 1 second at center|Slow return 3 seconds',
@@ -92,7 +92,7 @@ class SeedData {
       'muscle_primary': 'Side Delts',
       'muscle_secondary': 'Traps',
       'equipment': 'dumbbells',
-      'animation_asset': 'dumbbell-lateral-raise',
+      'animation_asset': 'dumbbell_lateral_raise',
       'exercise_type': 'isolation',
       'form_cues':
           'Lead with elbows not wrists|Raise to shoulder height (not higher)|Lean forward 15 degrees|Thumbs slightly lower at top|2 second hold at top|3 second controlled descent',
@@ -110,7 +110,7 @@ class SeedData {
       'muscle_primary': 'Triceps',
       'muscle_secondary': '',
       'equipment': 'cable_machine, rope_attachment',
-      'animation_asset': 'cable-pushdown-rope',
+      'animation_asset': 'cable_pushdown_rope',
       'exercise_type': 'isolation',
       'form_cues':
           'Stand close to cable machine|Lean forward 10-15 degrees|Elbows glued to sides|Spread rope at bottom (supinate wrists)|Full extension squeeze tricep',
@@ -128,7 +128,7 @@ class SeedData {
       'muscle_primary': 'Triceps',
       'muscle_secondary': 'Lower Chest',
       'equipment': 'dips_station',
-      'animation_asset': 'dips-tricep-focus',
+      'animation_asset': 'dips_tricep_focus',
       'exercise_type': 'compound',
       'form_cues':
           'Torso upright (vertical)|Elbows tracking back, close to body|Lower until upper arm parallel to floor|Full lockout at top|Don\'t shrug at bottom',
@@ -146,7 +146,7 @@ class SeedData {
       'muscle_primary': 'Upper Chest',
       'muscle_secondary': 'Front Delt, Triceps',
       'equipment': 'barbell, incline_bench',
-      'animation_asset': 'incline-barbell-bench-press',
+      'animation_asset': 'incline_barbell_bench_press',
       'exercise_type': 'compound',
       'form_cues':
           'Bench 30-35 degrees|Bar touches upper chest|Elbows slightly more forward than flat|Same form as flat bench|Lighter than flat is normal',
@@ -165,7 +165,7 @@ class SeedData {
       'muscle_primary': 'Front Delts',
       'muscle_secondary': 'Side Delts, Triceps',
       'equipment': 'smith_machine, adjustable_bench',
-      'animation_asset': 'smith-machine-shoulder-press',
+      'animation_asset': 'smith_machine_shoulder_press',
       'exercise_type': 'compound',
       'form_cues':
           'Bench fully upright (90 degrees)|Bar path down to chin level|Don\'t lock elbows aggressively|Elbows slightly forward (not flared)|Don\'t arch lower back',
@@ -183,7 +183,7 @@ class SeedData {
       'muscle_primary': 'Lower Chest',
       'muscle_secondary': 'Triceps',
       'equipment': 'barbell, decline_bench',
-      'animation_asset': 'decline-barbell-bench-press',
+      'animation_asset': 'decline_barbell_bench_press',
       'exercise_type': 'compound',
       'form_cues':
           'Feet secured in decline pad|Bar touches lower pec|Same elbow angle as flat bench|Control bar — gravity works against you|Most people stronger on decline',
@@ -201,7 +201,7 @@ class SeedData {
       'muscle_primary': 'Lower Chest',
       'muscle_secondary': 'Chest',
       'equipment': 'cable_machine',
-      'animation_asset': 'cable-fly-high-to-low',
+      'animation_asset': 'cable_fly_high_to_low',
       'exercise_type': 'isolation',
       'form_cues':
           'Cables at highest position|Step forward for tension|Lean forward 15-20 degrees|Slight elbow bend fixed|Bring hands together cross slightly|Squeeze chest 1 second',
@@ -219,7 +219,7 @@ class SeedData {
       'muscle_primary': 'Triceps',
       'muscle_secondary': '',
       'equipment': 'cable_machine, rope_attachment',
-      'animation_asset': 'overhead-cable-tricep-extension',
+      'animation_asset': 'overhead_cable_tricep_extension',
       'exercise_type': 'isolation',
       'form_cues':
           'Face away from cable machine|Hold rope behind head|Elbows pointing forward|Elbows stay in place|Full extension overhead|Feel long head stretch',
@@ -237,7 +237,7 @@ class SeedData {
       'muscle_primary': 'Front Delts',
       'muscle_secondary': '',
       'equipment': 'dumbbells',
-      'animation_asset': 'dumbbell-front-raise',
+      'animation_asset': 'dumbbell_front_raise',
       'exercise_type': 'isolation',
       'form_cues':
           'Slight bend in elbow|Raise to shoulder height only|Controlled 3 second descent|Only 2 sets — front delt already worked',
@@ -257,7 +257,7 @@ class SeedData {
       'muscle_primary': 'Lats',
       'muscle_secondary': 'Biceps, Rear Delt',
       'equipment': 'lat_pulldown_machine',
-      'animation_asset': 'lat-pulldown-wide-overhand',
+      'animation_asset': 'lat_pulldown_wide_overhand',
       'exercise_type': 'compound',
       'form_cues':
           'Grip wider than shoulders|Lean back 10-15 degrees max|Pull bar to upper chest|Lead with elbows — drive to hips|Chest tall throughout|Full arm extension at top|Squeeze lats at bottom',
@@ -275,7 +275,7 @@ class SeedData {
       'muscle_primary': 'Mid Back',
       'muscle_secondary': 'Rhomboids, Lower Lats',
       'equipment': 'cable_machine, v_bar',
-      'animation_asset': 'seated-cable-row-v-bar',
+      'animation_asset': 'seated_cable_row_v_bar',
       'exercise_type': 'compound',
       'form_cues':
           'Sit tall chest up before every rep|Slight lower back arch|Pull handle to belly button|Drive elbows past body|Squeeze shoulder blades at end|Full arm extension at front',
@@ -293,7 +293,7 @@ class SeedData {
       'muscle_primary': 'Lats',
       'muscle_secondary': 'Rhomboids, Rear Delt',
       'equipment': 'dumbbells, adjustable_bench',
-      'animation_asset': 'dumbbell-single-arm-row',
+      'animation_asset': 'dumbbell_single_arm_row',
       'exercise_type': 'compound',
       'form_cues':
           'Knee and hand on bench|Back flat parallel to floor|Let dumbbell hang full stretch|Pull elbow to ceiling toward hip|No torso rotation',
@@ -311,7 +311,7 @@ class SeedData {
       'muscle_primary': 'Biceps',
       'muscle_secondary': '',
       'equipment': 'preacher_curl_machine, ez_bar',
-      'animation_asset': 'preacher-curl-ez-bar',
+      'animation_asset': 'preacher_curl_ez_bar',
       'exercise_type': 'isolation',
       'form_cues':
           'Upper arms fully flat on pad|Full extension at bottom critical|Curl to chin level squeeze|3 second controlled descent every rep',
@@ -329,7 +329,7 @@ class SeedData {
       'muscle_primary': 'Brachialis',
       'muscle_secondary': 'Brachioradialis, Biceps',
       'equipment': 'dumbbells',
-      'animation_asset': 'hammer-curl-alternating',
+      'animation_asset': 'hammer_curl_alternating',
       'exercise_type': 'isolation',
       'form_cues':
           'Neutral grip throughout (thumbs up)|Elbows pinned to sides|Full extension at bottom each rep|Alternate arms — one resting',
@@ -347,7 +347,7 @@ class SeedData {
       'muscle_primary': 'Forearms',
       'muscle_secondary': '',
       'equipment': 'forearm_machine',
-      'animation_asset': 'forearm-machine-wrist-curl',
+      'animation_asset': 'forearm_machine_wrist_curl',
       'exercise_type': 'isolation',
       'form_cues':
           'Forearms fully flat on pad|Full range wrist drops then curls fully|Slow controlled no jerking|Train both directions always',
@@ -365,7 +365,7 @@ class SeedData {
       'muscle_primary': 'Lats',
       'muscle_secondary': 'Biceps, Lower Lats',
       'equipment': 'lat_pulldown_machine',
-      'animation_asset': 'lat-pulldown-underhand',
+      'animation_asset': 'lat_pulldown_underhand',
       'exercise_type': 'compound',
       'form_cues':
           'Underhand grip shoulder width|More bicep + lower lat activation|Pull bar to upper chest|Lead with elbows|Squeeze at bottom',
@@ -383,7 +383,7 @@ class SeedData {
       'muscle_primary': 'Full Back',
       'muscle_secondary': 'Rhomboids, Lower Lats, Biceps',
       'equipment': 'barbell',
-      'animation_asset': 'barbell-bent-over-row',
+      'animation_asset': 'barbell_bent_over_row',
       'exercise_type': 'compound',
       'form_cues':
           'Hinge at hips 45 degrees|Back flat and neutral|Bar hangs below chest|Pull bar to belly button|Elbows close to body|Squeeze shoulder blades at top|Full arm extension at bottom',
@@ -402,7 +402,7 @@ class SeedData {
       'muscle_primary': 'Lats',
       'muscle_secondary': 'Triceps (dynamic stability)',
       'equipment': 'cable_machine, straight_bar',
-      'animation_asset': 'straight-arm-cable-pulldown',
+      'animation_asset': 'straight_arm_cable_pulldown',
       'exercise_type': 'isolation',
       'form_cues':
           'Stand back from machine|Arms straight never bend elbows|Slight forward hinge|Pull bar from overhead to thighs|Feel lats stretch at top',
@@ -420,7 +420,7 @@ class SeedData {
       'muscle_primary': 'Biceps',
       'muscle_secondary': '',
       'equipment': 'dumbbells, preacher_curl_machine',
-      'animation_asset': 'preacher-curl-dumbbell',
+      'animation_asset': 'preacher_curl_dumbbell',
       'exercise_type': 'isolation',
       'form_cues':
           'Same form as bar version|Dumbbell allows more range|Full extension at bottom|Squeeze at top',
@@ -437,7 +437,7 @@ class SeedData {
       'muscle_primary': 'Biceps',
       'muscle_secondary': '',
       'equipment': 'cable_machine, straight_bar',
-      'animation_asset': 'cable-curl-straight-bar',
+      'animation_asset': 'cable_curl_straight_bar',
       'exercise_type': 'isolation',
       'form_cues':
           'Stand close to machine|Elbows pinned to sides|Curl all the way up squeeze|Constant tension unlike dumbbells|Slow descent',
@@ -457,7 +457,7 @@ class SeedData {
       'muscle_primary': 'Quads',
       'muscle_secondary': 'Glutes, Hamstrings',
       'equipment': 'smith_machine',
-      'animation_asset': 'smith-machine-squat',
+      'animation_asset': 'smith_machine_squat',
       'exercise_type': 'compound',
       'form_cues':
           'Feet forward of bar line (Smith specific)|Feet shoulder width, toes 30 degrees out|Bar on upper traps not neck|Create shelf with upper back|Take big breath brace core|Push knees out in toe direction|Descend until thighs parallel|Drive through heels|Knees never cave inward',
@@ -476,7 +476,7 @@ class SeedData {
       'muscle_primary': 'Quads',
       'muscle_secondary': '',
       'equipment': 'leg_extension_machine',
-      'animation_asset': 'leg-extension-machine',
+      'animation_asset': 'leg_extension_machine',
       'exercise_type': 'isolation',
       'form_cues':
           'Seat back so knees align with pivot|Ankle pad just above ankle bone|Full extension squeeze quads hard|1 second hold at top|3 second controlled return|Don\'t let stack touch between reps',
@@ -494,7 +494,7 @@ class SeedData {
       'muscle_primary': 'Hamstrings',
       'muscle_secondary': '',
       'equipment': 'hamstring_curl_machine',
-      'animation_asset': 'hamstring-curl-machine',
+      'animation_asset': 'hamstring_curl_machine',
       'exercise_type': 'isolation',
       'form_cues':
           'Hips pressed down into pad — non-negotiable|Curl until heel approaches glutes|Squeeze hamstrings at peak|3 second controlled return|Toes pointed slightly',
@@ -512,7 +512,7 @@ class SeedData {
       'muscle_primary': 'Hamstrings',
       'muscle_secondary': 'Glutes, Lower Back',
       'equipment': 'barbell',
-      'animation_asset': 'romanian-deadlift-barbell',
+      'animation_asset': 'romanian_deadlift_barbell',
       'exercise_type': 'compound',
       'form_cues':
           'Start standing bar at hips|Slight bend in knees locked throughout|Push hips back like closing a door|Bar drags down legs touching shins|Feel hamstring stretch at shin level|Drive hips forward return squeeze glutes|Back neutral throughout',
@@ -531,7 +531,7 @@ class SeedData {
       'muscle_primary': 'Lower Abs',
       'muscle_secondary': 'Hip Flexors, Core',
       'equipment': 'hanging_leg_raise_station',
-      'animation_asset': 'hanging-leg-raise',
+      'animation_asset': 'hanging_leg_raise',
       'exercise_type': 'isolation',
       'form_cues':
           'Arms in support position|Start hanging legs straight|Raise legs until parallel to floor|Controlled 3 second descent|Don\'t swing|If too hard: bend knees',
@@ -549,7 +549,7 @@ class SeedData {
       'muscle_primary': 'Quads',
       'muscle_secondary': 'Glutes, Hamstrings',
       'equipment': 'smith_machine, adjustable_bench',
-      'animation_asset': 'bulgarian-split-squat-smith',
+      'animation_asset': 'bulgarian_split_squat_smith',
       'exercise_type': 'compound',
       'form_cues':
           'Rear foot elevated on bench|Front foot far enough forward|Lower back knee toward floor|Front knee tracks over toe|Torso upright|Hardest exercise — go light',
@@ -567,7 +567,7 @@ class SeedData {
       'muscle_primary': 'Hamstrings',
       'muscle_secondary': 'Glutes, Lower Back',
       'equipment': 'dumbbells',
-      'animation_asset': 'dumbbell-romanian-deadlift',
+      'animation_asset': 'dumbbell_romanian_deadlift',
       'exercise_type': 'compound',
       'form_cues':
           'Same movement as barbell RDL|Dumbbells allow better range|Natural hand path|Push hips back|Keep slight knee bend|Feel hamstring stretch',
@@ -585,7 +585,7 @@ class SeedData {
       'muscle_primary': 'Obliques',
       'muscle_secondary': 'Lower Abs',
       'equipment': 'hanging_leg_raise_station',
-      'animation_asset': 'hanging-knee-raise-oblique',
+      'animation_asset': 'hanging_knee_raise_oblique',
       'exercise_type': 'isolation',
       'form_cues':
           'Same setup as leg raise|Knees bent|Rotate knees to each side|Controlled movement|Feel obliques working',

@@ -11,5 +11,13 @@ class AppConstants {
   static const double upperBodyProgressionKg = 2.5;
   static const double lowerBodyProgressionKg = 5.0;
   static const int targetProgressSessions = 2;
-  static const String apiBaseUrl = 'http://localhost:8000';
+
+  // TODO: Replace this URL with your deployed backend URL after deploying backend/main.py.
+  // Deploy to Render (free tier): https://render.com — see backend/render.yaml for config.
+  // Set ANTHROPIC_API_KEY as an environment variable in the Render dashboard (never commit it).
+  // Example deployed URL: https://ironlog-backend.onrender.com
+  // DO NOT use 'http://localhost:8000' — on a physical Android device localhost resolves
+  // to the device itself, not the dev machine, so it will always fail.
+  static const String apiBaseUrl = 'https://ironlog-backend.onrender.com';
 }
+

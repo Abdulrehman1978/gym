@@ -33,5 +33,35 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/exercises/
+    - assets/exercises/barbell_bent_over_row/
+    - assets/exercises/bulgarian_split_squat_smith/
+    - assets/exercises/cable_curl_straight_bar/
+    - assets/exercises/cable_fly_high_to_low/
+    - assets/exercises/cable_pushdown_rope/
+    - assets/exercises/decline_barbell_bench_press/
+    - assets/exercises/dips_tricep_focus/
+    - assets/exercises/dumbbell_front_raise/
+    - assets/exercises/dumbbell_lateral_raise/
+    - assets/exercises/dumbbell_romanian_deadlift/
+    - assets/exercises/dumbbell_single_arm_row/
+    - assets/exercises/flat_barbell_bench_press/
+    - assets/exercises/forearm_machine_wrist_curl/
+    - assets/exercises/hammer_curl_alternating/
+    - assets/exercises/hamstring_curl_machine/
+    - assets/exercises/hanging_knee_raise_oblique/
+    - assets/exercises/hanging_leg_raise/
+    - assets/exercises/incline_barbell_bench_press/
+    - assets/exercises/incline_dumbbell_press/
+    - assets/exercises/lat_pulldown_underhand/
+    - assets/exercises/lat_pulldown_wide_overhand/
+    - assets/exercises/leg_extension_machine/
+    - assets/exercises/overhead_cable_tricep_extension/
+    - assets/exercises/pec_deck_fly_machine/
+    - assets/exercises/preacher_curl_dumbbell/
+    - assets/exercises/preacher_curl_ez_bar/
+    - assets/exercises/romanian_deadlift_barbell/
+    - assets/exercises/seated_cable_row_v_bar/
+    - assets/exercises/smith_machine_shoulder_press/
+    - assets/exercises/smith_machine_squat/
+    - assets/exercises/straight_arm_cable_pulldown/
     - assets/images/muscle_diagrams/
