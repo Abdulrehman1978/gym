@@ -184,6 +184,7 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
               ),
             ],
           ],
+        ),
       ),
       bottomNavigationBar: const BottomNav(currentIndex: 2),
     );
