@@ -40,8 +40,8 @@ class WarmupBanner extends StatelessWidget {
           ...sets.asMap().entries.map((entry) {
             final i = entry.key + 1;
             final s = entry.value as Map<String, dynamic>;
-            final percent = (s['percent'] as num).toDouble();
-            final reps = (s['reps'] as num).toInt();
+            final percent = (s['percent'] as num? ?? s['pct'] as num? ?? 0.5).toDouble();
+            final reps = (s['reps'] as num? ?? 10).toInt();
             final weight = (workingWeight * percent).roundToDouble();
             final desc = percent <= 0.5 ? 'Bar speed only' : 'Controlled';
             return Padding(
